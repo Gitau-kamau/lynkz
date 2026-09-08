@@ -1,0 +1,16 @@
+{
+  "name": "LYNKZ — Connect. Share. Discover.",
+  "short_name": "LYNKZ",
+  "description": "Share your world, discover new people, join conversations and create connections that actually matter.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07070e",
+  "theme_color": "#07070e",
+  "icons": [
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

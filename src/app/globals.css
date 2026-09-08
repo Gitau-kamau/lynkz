@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07070e;
+  --bg2: #0d0d19;
+  --card: #111120;
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f1f2f8;
+  --muted: #9a9cb3;
+  --a1: #8b5cf6;
+  --a2: #22d3ee;
+  --danger: #f43f5e;
+  --ok: #34d399;
+}
+
+[data-theme="light"] {
+  --bg: #f4f5fb;
+  --bg2: #ffffff;
+  --card: #ffffff;
+  --line: rgba(10, 12, 30, 0.1);
+  --text: #10132a;
+  --muted: #5d6080;
+}
+
+html[data-accent="cyan"] { --a1: #06b6d4; --a2: #3b82f6; }
+html[data-accent="blue"] { --a1: #3b82f6; --a2: #8b5cf6; }
+html[data-accent="pink"] { --a1: #ec4899; --a2: #8b5cf6; }
+html[data-accent="amber"] { --a1: #f59e0b; --a2: #ef4444; }
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-display {
+  font-family: var(--font-space), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.grad {
+  background-image: linear-gradient(135deg, var(--a1) 0%, var(--a2) 100%);
+}
+
+.text-grad {
+  background-image: linear-gradient(135deg, var(--a1) 0%, var(--a2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 32px -18px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="light"] .card {
+  box-shadow: 0 10px 30px -18px rgba(30, 34, 90, 0.25);
+}
+
+.menu-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.15s;
+}
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::selection {
+  background: color-mix(in srgb, var(--a1) 45%, transparent);
+}
+
+/* subtle focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--a2) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.modal-in { animation: modal-in 0.18s ease-out; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.toast-in { animation: toast-in 0.2s ease-out; }
+
+@keyframes splash-fade {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  78% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.splash-fade { animation: splash-fade 1.1s ease-out both; pointer-events: none; }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@keyframes shimmer-move {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* gradient ring used around lynk avatars */
+.grad-ring {
+  background: conic-gradient(from 180deg, var(--a1), var(--a2), var(--a1));
+}
